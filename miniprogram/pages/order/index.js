@@ -29,7 +29,6 @@ Page({
 
   // 展示座位
   handleSelect(e) {
-    console.log(e)
     const _this = this
     for (let i = 0; i < _this.data.seats.length; i++) {
       if (e.currentTarget.dataset.sid == _this.data.seats[i].sid) {
@@ -134,7 +133,6 @@ Page({
         orderid
       } = this.data
 
-      console.log(this.data)
       wx.cloud.callFunction({
         name: this.data.oid === '1' ? 'updateOrder' : 'addOrder',
         data: {
@@ -154,7 +152,6 @@ Page({
           orderid
         },
         success: res => {
-          console.log(res)
           wx.showToast({
             title: '预约成功',
             icon: 'success'
@@ -185,13 +182,11 @@ Page({
       title: '加载中...',
     })
     const db = wx.cloud.database()
-    console.log(this.data._id)
     db.collection('address_list').where({
         _id: this.data._id,
       })
       .get({
         success: res => {
-          console.log(res)
           wx.hideLoading()
           this.setData({
             seats: res.data[0].seat
@@ -204,7 +199,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: async function (options) {
-    console.log(options)
 
     const detail = await JSON.parse(decodeURIComponent(options.data))
     const {
@@ -217,7 +211,6 @@ Page({
       img_src,
       address_id
     } = detail
-    console.log(detail)
     if (options.oid === '1') {
       // 编辑
       this.setData({

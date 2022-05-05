@@ -68,7 +68,6 @@ Page({
         wx.getUserProfile({
             desc: '用于完善资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
             success: (res) => {
-                console.log(res)
                 this.setUserInfo(res.userInfo)
             }
         })
@@ -76,8 +75,6 @@ Page({
 
     // 设置用户信息
     setUserInfo(userInfo) {
-        console.log(userInfo)
-        console.log(this.data.userInfo)
         this.setData({
             authorized: !!userInfo?.nickName,
             userInfo: {
@@ -86,7 +83,6 @@ Page({
             }
         })
         const openid = app.globalData.openid
-        console.log(openid)
         if (!openid) return
 
         wx.cloud.callFunction({
@@ -124,13 +120,11 @@ Page({
     getUserInfo() {
         const that = this
         const openid = app.globalData.openid
-        console.log(openid)
         if (!openid) return
         const db = wx.cloud.database()
         db.collection('user').where({
             _openid: openid
         }).get().then(res => {
-            console.log(res)
             this.setData({
                 userInfo: res.data[0],
                 signed: res.data[0]?.signInDate.trim() === new Date().toDateString().trim()

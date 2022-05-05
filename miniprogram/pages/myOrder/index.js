@@ -26,7 +26,6 @@ Page({
       })
       .get({
         success: res => {
-          console.log(res);
           wx.hideLoading()
           this.setData({
             myOrderList: res.data,

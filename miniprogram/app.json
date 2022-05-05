@@ -9,7 +9,6 @@
     "pages/order/index",
     "pages/orderDetail/index",
     "pages/myOrder/index",
-    "pages/dynamic/index",
     "pages/instrument/index"
   ],
   "window": {
@@ -48,13 +47,13 @@
         "selectedIconPath": "images/tabs/home-fil.png"
       },
       {
-        "pagePath": "pages/instrument/index ",
+        "pagePath": "pages/instrument/index",
         "text": "仪器",
         "iconPath": "images/tabs/ins.png",
         "selectedIconPath": "images/tabs/ins-fil.png"
       },
       {
-        "pagePath": "pages/dynamic/index",
+        "pagePath": "pages/find/index",
         "text": "动态",
         "iconPath": "images/tabs/find.png",
         "selectedIconPath": "images/tabs/find-fil.png"

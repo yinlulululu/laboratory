@@ -17,7 +17,6 @@ Page({
     const db = wx.cloud.database()
     await db.collection('order_list').doc(options.orderId).get().then(res => {
       // res.data 包含该记录的数据
-      console.log(res)
       this.setData({
         detail: res.data
       })
@@ -47,7 +46,6 @@ Page({
 
   // 编辑
   edit() {
-    console.log(this.data.detail)
     wx.navigateTo({
       url: '/pages/order/index?oid=1&data=' + JSON.stringify(this.data.detail)
     })
@@ -61,7 +59,6 @@ Page({
         orderid: this.data.detail._id
       },
       success: res => {
-        console.log(res)
         wx.showToast({
           title: '取消成功',
           icon: 'success'
@@ -82,7 +79,6 @@ Page({
 
   // 添加到日历
   addCalender() {
-    console.log(this.data.detail.date)
     const {
       name,
       date,
