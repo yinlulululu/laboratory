@@ -21,7 +21,7 @@ Page({
       title: '加载中...',
     })
     const db = wx.cloud.database()
-    db.collection('order_list').where({
+    db.collection('lab_order_list').where({
         _openid: getApp().globalData.openid
       })
       .get({

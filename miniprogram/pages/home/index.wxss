@@ -110,6 +110,7 @@
 
 .role_img {
     width: 100%;
-    height: 360px;
+    height: calc(100vw * 1.4);
     margin-top: 16px;
+    border-radius: 10px;
 }

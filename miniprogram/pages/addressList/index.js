@@ -26,7 +26,7 @@ Page({
       title: '加载中...',
     })
     const db = wx.cloud.database()
-    db.collection('address_list').where({
+    db.collection('lab_list').where({
         category_id: this.data.category_id,
       })
       .get({

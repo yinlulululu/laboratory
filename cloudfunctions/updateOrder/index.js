@@ -10,7 +10,7 @@ exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
   const openid = wxContext.OPENID
   let orderid = event.orderid
-  const res = await db.collection('order_list').doc(event.orderid).update({
+  const res = await db.collection('lab_order_list').doc(event.orderid).update({
     data: {
       username: event.username,
       date: event.date,

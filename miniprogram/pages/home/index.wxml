@@ -4,7 +4,7 @@
 		<view class="title" bindtap="navigateTo" data-url="/pages/addressList/index">
 			<text class="to_select">切换校区</text>
 			<van-icon name="arrow" />
-			<text class="total">（{{total}}家门店）</text>
+			<text class="total">（{{total}}处实验室）</text>
 		</view>
 		<view class="container">
 			<view class="img">
@@ -29,8 +29,8 @@
 		</view>
 	</view>
 	<view class="role">
-		<view>会员守则</view>
-		<image class="role_img" src="cloud://yinlu-3bit0.7969-yinlu-3bit0-1302890904/room/home/role.png"></image>
+		<view>实验室守则</view>
+		<image class="role_img" src="cloud://yinlu-3bit0.7969-yinlu-3bit0-1302890904/lab/home/role.webp"></image>
 	</view>
 
 </view>

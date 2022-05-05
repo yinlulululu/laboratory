@@ -15,7 +15,7 @@ Page({
    */
   onLoad: async function (options) {
     const db = wx.cloud.database()
-    await db.collection('order_list').doc(options.orderId).get().then(res => {
+    await db.collection('lab_order_list').doc(options.orderId).get().then(res => {
       // res.data 包含该记录的数据
       this.setData({
         detail: res.data

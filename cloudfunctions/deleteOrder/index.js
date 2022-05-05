@@ -9,7 +9,7 @@ const db = cloud.database()
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
   const openid = wxContext.OPENID
-  const res = await db.collection('order_list').doc(event.orderid).remove({})
+  const res = await db.collection('lab_order_list').doc(event.orderid).remove({})
 
   return {
     res,
