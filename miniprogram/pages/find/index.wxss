@@ -21,7 +21,7 @@
 }
 
 .van-calendar__bottom-info {
-  font-size: 9px !important;
+  font-size: 8px !important;
 }
 
 .container {

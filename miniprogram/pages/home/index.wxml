@@ -16,7 +16,7 @@
 			<view class="msg">
 				<view class="name">{{detail.name}}</view>
 				<view class="time">
-					<text>营业时间</text>
+					<text>开放时间</text>
 					<text>{{detail.time}}</text>
 				</view>
 				<view class="address">

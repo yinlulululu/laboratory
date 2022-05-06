@@ -3,7 +3,7 @@
     <van-tab title="预约须知" name="1">
       <view class="msg">
         <view>预约地点：{{name}}</view>
-        <view>营业时间：{{time}}</view>
+        <view>开放时间：{{time}}</view>
       </view>
       <view class="know">
         <view>1. 本人无发热、乏力等不适症状</view>

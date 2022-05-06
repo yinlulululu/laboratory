@@ -36,8 +36,8 @@
           "name": "发现",
           "pathName": "pages/find/index",
           "query": "",
-          "scene": null,
-          "launchMode": "default"
+          "launchMode": "default",
+          "scene": null
         },
         {
           "name": "我的订单",
@@ -53,11 +53,11 @@
           "scene": null
         },
         {
-          "name": "探索系列",
-          "pathName": "pages/explore/other_1/index",
+          "name": "仪器",
+          "pathName": "pages/instrument/index",
           "query": "",
-          "launchMode": "default",
-          "scene": null
+          "scene": null,
+          "launchMode": "default"
         }
       ]
     }

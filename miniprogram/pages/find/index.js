@@ -44,7 +44,7 @@ Page({
           const _day = Number(item.date.split('年')[1].split('月')[1].split('日')[0])
           if (month === _month) {
             if (date === _day) {
-              // day.text = item.name
+              day.text = ''
               day.bottomInfo = item.name;
               day.topInfo = `${item.sid}号位`
               day.className = 'order_day'

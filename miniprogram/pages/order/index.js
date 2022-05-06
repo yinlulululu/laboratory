@@ -6,7 +6,7 @@ Page({
    */
   data: {
     name: '', // 自习室名称
-    time: '', // 营业时间
+    time: '', // 开放时间
     date: '', // 预约时间
     address: '', // 地址
     latitude: '',
