@@ -1,10 +1,21 @@
 <!--pages/instrument/index.wxml-->
 <view class="top">
   <van-dropdown-menu active-color="#165dff">
-    <van-dropdown-item value="{{ ins_value }}" options="{{ ins_option }}" />
+    <van-dropdown-item bind:change="handleChangeIns" value="{{ ins_value }}" options="{{ ins_option }}" />
   </van-dropdown-menu>
 </view>
 <scroll-view class="content" scroll-y bindscrolltolower="moredata">
+  <view class="container">
+    <van-grid style="width: 100%;" square gutter="{{ 10 }}" column-num="3">
+      <van-grid-item wx:for="{{ insList}}" use-slot class="block">
+        <!-- <view ></view> -->
+        <van-tag plain class="ins_status" color="#165dff">{{item.ins_status === '1' ? '完好' : '损坏'}}</van-tag>
+
+        <image style="width: 50px;height: 50px;" src="{{item.ins_img}}"></image>
+        <view class="ins_name">{{item.ins_name}}</view>
+      </van-grid-item>
+    </van-grid>
+  </view>
 </scroll-view>
 <view class="none" wx:if="{{!insList.length}}">
   <image src="../searchs/images/none.png" style="width: 100%;height: 100%;"></image>
