@@ -1,0 +1,5 @@
+<!--pages/labAdmin/index.wxml-->
+<view class="lab-admin">
+  <van-button bindtap="onOpenAddDialog" size="small" color="#165dff">添加实验室</van-button>
+
+</view>

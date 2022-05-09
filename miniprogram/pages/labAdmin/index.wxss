@@ -1,0 +1,5 @@
+/* pages/labAdmin/index.wxss */
+.lab-admin {
+  margin-top: 10vh;
+  padding: 0 10px 10px 10px;
+}

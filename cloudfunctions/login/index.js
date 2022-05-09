@@ -21,7 +21,7 @@ exports.main = async (event, context) => {
     openid
   }
 
-  await db.collection('user').add({
+  await db.collection('lab_user_list').add({
     data: {
       _openid: openid,
       create_time: Date.now(),

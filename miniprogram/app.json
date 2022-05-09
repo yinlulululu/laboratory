@@ -9,7 +9,12 @@
     "pages/order/index",
     "pages/orderDetail/index",
     "pages/myOrder/index",
-    "pages/instrument/index"
+    "pages/instrument/index",
+    "pages/instrumentDetail/index",
+    "pages/insAdmin/index",
+    "pages/labAdmin/index",
+    "pages/noticeAdmin/index",
+    "pages/labAdmin/addLab/index"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -37,7 +42,15 @@
     "van-card": "@vant/weapp/card/index",
     "van-tag": "@vant/weapp/tag/index",
     "van-dropdown-menu": "@vant/weapp/dropdown-menu/index",
-    "van-dropdown-item": "@vant/weapp/dropdown-item/index"
+    "van-dropdown-item": "@vant/weapp/dropdown-item/index",
+    "van-image": "@vant/weapp/image/index",
+    "van-divider": "@vant/weapp/divider/index",
+    "van-dialog": "@vant/weapp/dialog/index",
+    "van-picker": "@vant/weapp/picker/index",
+    "van-datetime-picker": "@vant/weapp/datetime-picker/index",
+    "van-uploader": "@vant/weapp/uploader/index"
+
+
   },
   "tabBar": {
     "color": "#2c2c2c",

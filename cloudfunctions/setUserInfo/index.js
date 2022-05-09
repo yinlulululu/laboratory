@@ -9,9 +9,11 @@ exports.main = async (event, context) => {
 	const data = Object.assign({}, event.data)
 	delete data._id
 	const db = cloud.database()
-	const res = await db.collection('user').where({
+	const res = await db.collection('lab_user_list').where({
 		_openid: event.openid || wxContext.OPENID
-	}).update({ data })
+	}).update({
+		data
+	})
 
 	return {
 		res,

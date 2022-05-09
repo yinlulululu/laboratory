@@ -24,7 +24,8 @@ Page({
     }, {
       value: 20,
       name: '已取消'
-    }]
+    }],
+    labNoticeList: []
   },
 
   /**
@@ -35,6 +36,7 @@ Page({
     this.echartsPieComponnet = this.selectComponent('#mychart-dom-pie');
     const that = this
     await this.getMyOrderList()
+    await this.getLabNoticeList()
     this.setData({
       formatter(day) {
         const month = day.date.getMonth() + 1;
@@ -97,6 +99,19 @@ Page({
               value: isCancelList.length
             }]
           });
+        }
+      })
+  },
+
+  // 获取公告信息
+  getLabNoticeList() {
+    const db = wx.cloud.database()
+    db.collection('lab_notice_list')
+      .get({
+        success: res => {
+          this.setData({
+            labNoticeList: res.data
+          })
         }
       })
   },

@@ -18,15 +18,15 @@
   </view>
   <view class="container_bot">
     <view class="row">
-      <view class="cell">
+      <view class="cell" bindtap="navigateTo" data-url="/pages/labAdmin/index">
         <image src="./images/lab.png"></image>
         <view>实验室管理</view>
       </view>
-      <view class="cell">
+      <view class="cell" bindtap="navigateTo" data-url="/pages/insAdmin/index">
         <image src="./images/ins.png"></image>
         <view>仪器管理</view>
       </view>
-      <view class="cell">
+      <view class="cell" bindtap="navigateTo" data-url="/pages/noticeAdmin/index">
         <image src="./images/notice.png"></image>
         <view>公告管理</view>
       </view>

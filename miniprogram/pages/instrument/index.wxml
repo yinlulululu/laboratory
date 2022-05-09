@@ -2,16 +2,17 @@
 <view class="top">
   <van-dropdown-menu active-color="#165dff">
     <van-dropdown-item bind:change="handleChangeIns" value="{{ ins_value }}" options="{{ ins_option }}" />
+    <van-dropdown-item bind:change="handleChangeStatus" value="{{ ins_status_value }}" options="{{ ins_status_option }}" />
   </van-dropdown-menu>
+
 </view>
 <scroll-view class="content" scroll-y bindscrolltolower="moredata">
   <view class="container">
     <van-grid style="width: 100%;" square gutter="{{ 10 }}" column-num="3">
       <van-grid-item wx:for="{{ insList}}" use-slot class="block">
-        <!-- <view ></view> -->
-        <van-tag plain class="ins_status" color="#165dff">{{item.ins_status === '1' ? '完好' : '损坏'}}</van-tag>
-
-        <image style="width: 50px;height: 50px;" src="{{item.ins_img}}"></image>
+        <van-tag wx:if="{{item.ins_status ==='1'}}" plain class="ins_status" color="#165dff">完好</van-tag>
+        <van-tag wx:if="{{item.ins_status ==='2'}}" plain class="ins_status" color="#f00">损坏</van-tag>
+        <van-image style="height: 50px;" width="50" height="50" src="{{item.ins_image}}" use-error-slot />
         <view class="ins_name">{{item.ins_name}}</view>
       </van-grid-item>
     </van-grid>

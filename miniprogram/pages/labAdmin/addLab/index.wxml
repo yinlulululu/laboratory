@@ -1,0 +1,39 @@
+<!--pages/labAdmin/addLad/index.wxml-->
+<view class="add-lab">
+
+  <van-field value="{{ name }}" required input-align="right" placeholder="请输入实验室名称" label="实验室名称" bind:change="onChangeName" />
+  <van-field value="{{ seats }}" required input-align="right" placeholder="请输入实验室座位数量" type="number" label="座位数量" bind:change="onChangeSeats" />
+  <van-cell style="color: #2c2c2c;" title="选择开始时间" value="{{ startTime }}" required bind:click="onShowStart" style="border-radius: 15px;" />
+  <van-action-sheet show="{{ showStartTime }}" bind:close="closeStartTime" title="选择开始时间">
+    <view>
+      <van-datetime-picker bind:confirm="confirmStartTime" cancel-button-text="" type="time" />
+    </view>
+  </van-action-sheet>
+
+  <van-cell style="color: #2c2c2c;" title="选择结束时间" value="{{ endTime }}" required bind:click="onShowEnd" style="border-radius: 15px;" />
+  <van-action-sheet show="{{ showEndTime }}" bind:close="closeEndTime" title="选择结束时间">
+    <view>
+      <van-datetime-picker bind:confirm="confirmEndTime" cancel-button-text="" type="time" />
+    </view>
+  </van-action-sheet>
+
+  <van-cell style="color: #2c2c2c;" title="选择实验室所在校区" value="{{ categoryName }}" required bind:click="onShowCategoryName" style="border-radius: 15px;" />
+  <van-action-sheet show="{{ showCategory }}" actions="{{ actions }}" bind:select="onSelect" />
+
+  <van-cell style="color: #2c2c2c;" title="选择实验室地址" value="{{ address }}" required bind:click="onShowAddress" style="border-radius: 15px;" />
+
+  <van-cell style="color: #2c2c2c;" title="上传实验室图片" value="{{ fileID }}" required style="border-radius: 15px;">
+
+    <van-uploader max-count="1" file-list="{{ fileList }}" bind:after-read="afterRead" />
+  </van-cell>
+
+
+
+
+
+  <view class="btns">
+    <van-button class="btn" size="small" plain color="#165dff" bindtap="back">返回</van-button>
+    <van-button class="btn" size="small" color="#165dff" bindtap="submit">提交</van-button>
+  </view>
+
+</view>

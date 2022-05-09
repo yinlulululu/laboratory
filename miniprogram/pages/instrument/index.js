@@ -10,31 +10,18 @@ Page({
       value: ''
     }],
     ins_value: '',
-    insList: [{
-        ins_name: '烧杯',
-        ins_address: '农大新区兽医',
-        ins_status: '1', // 1 完好 2 损坏
-        ins_img: 'cloud://yinlu-3bit0.7969-yinlu-3bit0-1302890904/lab/ins/1.png'
-      },
-      {
-        ins_name: '烧杯',
-        ins_address: '农大新医学院',
-        ins_status: '1', // 1 完好 2 损坏
-        ins_img: 'cloud://yinlu-3bit0.7969-yinlu-3bit0-1302890904/lab/ins/1.png'
-      },
-      {
-        ins_name: '烧杯',
-        ins_address: '农大新区9兽医学院',
-        ins_status: '1', // 1 完好 2 损坏
-        ins_img: 'cloud://yinlu-3bit0.7969-yinlu-3bit0-1302890904/lab/ins/1.png'
-      },
-      {
-        ins_name: '烧杯',
-        ins_address: '农大新兽医学院',
-        ins_status: '1', // 1 完好 2 损坏
-        ins_img: 'cloud://yinlu-3bit0.7969-yinlu-3bit0-1302890904/lab/ins/1.png'
-      }
-    ]
+    insList: [],
+    ins_status_value: '',
+    ins_status_option: [{
+      text: '全部状态',
+      value: ''
+    }, {
+      text: '完好',
+      value: '1'
+    }, {
+      text: '损坏',
+      value: '2'
+    }]
   },
 
   /**
@@ -58,7 +45,7 @@ Page({
             }
           })
           this.setData({
-            ins_option: [..._option, ...this.data.ins_option]
+            ins_option: [...this.data.ins_option, ..._option]
           })
 
         }
@@ -71,12 +58,23 @@ Page({
       title: '加载中...',
     })
     const db = wx.cloud.database()
+    const _ = db.command
+
+
     db.collection('lab_instrument_list')
-      // .where({
-      //   ins_address: this.data.ins_value
-      // })
+      .where(
+        _.or([{
+          ins_address: db.RegExp({
+            regexp: this.data.ins_value,
+          }),
+          ins_status: db.RegExp({
+            regexp: this.data.ins_status_value,
+          }),
+        }])
+      )
       .get({
         success: res => {
+          console.log(res.data)
           wx.hideLoading()
           this.setData({
             insList: res.data
@@ -87,13 +85,16 @@ Page({
 
   // 选择仪器地址
   handleChangeIns(e) {
-
-    console.log(this.data.ins_value)
     this.setData({
-      ins_option: [{
-        text: '全部仪器',
-        value: ''
-      }]
+      ins_value: e.detail
+    })
+    this.getInsList()
+  },
+
+  // 选择仪器状态
+  handleChangeStatus(e) {
+    this.setData({
+      ins_status_value: e.detail
     })
     this.getInsList()
   },

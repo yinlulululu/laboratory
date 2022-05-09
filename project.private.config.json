@@ -56,6 +56,20 @@
           "name": "仪器",
           "pathName": "pages/instrument/index",
           "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "实验室管理",
+          "pathName": "pages/labAdmin/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "添加实验室",
+          "pathName": "pages/labAdmin/addLab/index",
+          "query": "",
           "scene": null,
           "launchMode": "default"
         }

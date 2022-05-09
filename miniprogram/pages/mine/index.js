@@ -44,6 +44,14 @@ Page({
         })
     },
 
+
+    // 路由跳转
+    navigateTo(e) {
+        wx.navigateTo({
+            url: e.currentTarget.dataset.url,
+        })
+    },
+
     onChange(event) {
         this.setData({
             activeNames: event.detail,
