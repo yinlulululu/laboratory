@@ -1,0 +1,10 @@
+<!-- pages/labAdmin/addLad/index.wxml -->
+<view class="add-ins">
+  <van-field value="{{ info }}" required input-align="right" placeholder="请输入公告内容" label="公告内容" bind:change="onChangeInfo" />
+
+
+  <view class="btns">
+    <van-button class="btn" size="small" plain color="#165dff" bindtap="back">返回</van-button>
+    <van-button class="btn" size="small" color="#165dff" bindtap="submit">提交</van-button>
+  </view>
+</view>

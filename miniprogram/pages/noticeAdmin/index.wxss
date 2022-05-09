@@ -1,1 +1,53 @@
 /* pages/noticeAdmin/index.wxss */
+.notice-admin {
+  margin-top: 10vh;
+  padding: 0 10px 10px 10px;
+}
+
+.notice {
+  margin: 10px 10px 10px 10px;
+  height: 100%;
+  padding: 10px 0;
+  background-color: #fff;
+}
+
+.notice-block {
+  margin: 0 16px 10px 16px;
+  color: #2c2c2c;
+}
+
+.notice-block>view:first-child {
+  display: flex;
+}
+
+.notice-block>view:nth-child(2) {
+  color: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  margin-top: 5px;
+  background-color: #165dff;
+  border-radius: 50%;
+}
+
+.info {
+  width: 95%;
+  margin-left: 6px;
+  font-size: 14px;
+}
+
+
+.notice .notice-block:last-child .line {
+  display: none
+}
+
+.btn {
+  margin-left: 10px;
+}

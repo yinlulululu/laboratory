@@ -70,6 +70,34 @@
           "name": "添加实验室",
           "pathName": "pages/labAdmin/addLab/index",
           "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "仪器管理",
+          "pathName": "pages/insAdmin/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "添加仪器",
+          "pathName": "pages/insAdmin/addIns/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "公告管理",
+          "pathName": "pages/noticeAdmin/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "添加公告",
+          "pathName": "pages/noticeAdmin/addNotice/index",
+          "query": "",
           "scene": null,
           "launchMode": "default"
         }

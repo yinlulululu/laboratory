@@ -1,0 +1,17 @@
+<!-- pages/labAdmin/addLad/index.wxml -->
+<view class="add-ins">
+  <van-field value="{{ name }}" required input-align="right" placeholder="请输入仪器名称" label="仪器名称" bind:change="onChangeName" />
+  <van-cell style="color: #2c2c2c;" title="仪器地址" value="{{ address }}" required bind:click="onShowAddress" style="border-radius: 15px;" />
+  <van-action-sheet show="{{ showAddress }}" actions="{{ addressActions }}" bind:select="onSelectAddress" />
+
+  <van-cell style="color: #2c2c2c;" title="仪器状态" value="{{ status }}" required bind:click="onShowStatus" style="border-radius: 15px;" />
+  <van-action-sheet show="{{ showStatus }}" actions="{{ statusActions }}" bind:select="onSelectStatus" />
+
+  <van-cell style="color: #2c2c2c;" title="仪器图片" value="{{ fileID }}" required style="border-radius: 15px;">
+    <van-uploader deletable="{{ true }}" max-count="1" file-list="{{ fileList }}" bind:after-read="afterRead" />
+  </van-cell>
+  <view class="btns">
+    <van-button class="btn" size="small" plain color="#165dff" bindtap="back">返回</van-button>
+    <van-button class="btn" size="small" color="#165dff" bindtap="submit">提交</van-button>
+  </view>
+</view>

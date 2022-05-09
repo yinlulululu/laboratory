@@ -1,2 +1,25 @@
 <!--pages/noticeAdmin/index.wxml-->
-<text>pages/noticeAdmin/index.wxml</text>
+<view class="notice-admin">
+  <van-button bindtap="onOpenAddDialog" size="small" color="#165dff" style="margin-left: 10px;">添加公告</van-button>
+  <view class="notice">
+    <view class="notice-block" wx:for="{{noticeList}}" wx:for-index="idx" data-index="{{idx}}">
+      <view>
+        <view class="dot"></view>
+        <view class="info">{{item.info}}</view>
+      </view>
+      <view>
+        <view>
+          {{item.time}}
+        </view>
+        <view>
+          <van-button class="btn" size="mini" bindtap="editNotice" data-index="{{idx}}" color="#165dff">编辑</van-button>
+          <van-button plain class="btn" size="mini" color="#165dff" bindtap="removeNotice" data-index="{{item._id}}">删除</van-button>
+        </view>
+
+      </view>
+      <van-divider dashed class="line" />
+
+    </view>
+
+  </view>
+</view>

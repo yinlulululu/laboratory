@@ -1,2 +1,21 @@
 <!--pages/insAdmin/index.wxml-->
-<text>pages/insAdmin/index.wxml</text>
+<view class="ins-admin">
+  <van-button bindtap="onOpenAddDialog" size="small" color="#165dff" style="margin-left: 10px;">添加仪器</van-button>
+
+  <scroll-view class="content" scroll-y bindscrolltolower="moredata">
+    <view class="container">
+      <van-grid style="width: 100%;" square gutter="{{ 10 }}" column-num="2">
+        <van-grid-item wx:for="{{ insList}}" wx:for-index="idx" data-index="{{idx}}" use-slot class="block">
+          <van-tag wx:if="{{item.ins_status ==='1'}}" plain class="ins_status" color="#165dff">完好</van-tag>
+          <van-tag wx:if="{{item.ins_status ==='2'}}" plain class="ins_status" color="#f00">损坏</van-tag>
+          <van-image style="height: 50px;" width="50" height="50" src="{{item.ins_image}}" use-error-slot />
+          <view class="ins_name">{{item.ins_name}}</view>
+          <view class="btns">
+            <van-button class="btn" size="mini" bindtap="editIns" data-index="{{idx}}" color="#165dff">编辑</van-button>
+            <van-button plain class="btn" size="mini" color="#165dff" bindtap="removeIns" data-index="{{item._id}}">删除</van-button>
+          </view>
+        </van-grid-item>
+      </van-grid>
+    </view>
+  </scroll-view>
+</view>

@@ -1,5 +1,27 @@
 <!--pages/labAdmin/index.wxml-->
 <view class="lab-admin">
-  <van-button bindtap="onOpenAddDialog" size="small" color="#165dff">添加实验室</van-button>
+  <van-button bindtap="onOpenAddDialog" size="small" color="#165dff" style="margin-left: 10px;">添加实验室</van-button>
+  <view style="height: 100%;">
+    <scroll-view class="content" scroll-y>
+      <view wx:for="{{addressList}}" wx:for-index="idx" wx:key="name" data-index="{{idx}}">
+        <view class="container">
+          <view class="img">
+            <image class="img_item" src="{{item.img_src}}"></image>
+          </view>
+          <view class="msg">
+            <view class="name">{{item.name}}</view>
+            <view class="time">
+              <text>开放时间</text>
+              <text>{{item.time}}</text>
+            </view>
+            <view class="btns">
+              <van-button class="btn" size="mini" bindtap="editLab" data-index="{{idx}}" color="#165dff">编辑</van-button>
+              <van-button plain class="btn" size="mini" color="#165dff" bindtap="removeLab" data-index="{{item._id}}">删除</van-button>
+            </view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
 
 </view>

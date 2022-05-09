@@ -23,7 +23,7 @@ Page({
       },
     ],
     name: '', // 实验室名称
-    seats: '', // 实验室座位数量
+    seat: '', // 实验室座位数量
     startTime: '', // 开始时间
     endTime: '', // 结束时间
     categoryName: '', // 分类校区
@@ -31,6 +31,8 @@ Page({
     latitude: '',
     longitude: '',
     fileList: [],
+    oid: '',
+    _id: ''
   },
 
   // 实验室名称
@@ -42,7 +44,7 @@ Page({
   // 座位数量
   onChangeSeats(e) {
     this.setData({
-      seats: e.detail
+      seat: e.detail
     })
   },
 
@@ -144,7 +146,7 @@ Page({
         icon: 'none'
       });
     } else {
-      const uploadTasks = fileList.map((file, index) => this.uploadFilePromise(`my-photo-lab${index}.png`, file));
+      const uploadTasks = fileList.map((file, index) => this.uploadFilePromise(`my-photo-lab${Date.now()}}.png`, file));
       Promise.all(uploadTasks)
         .then(data => {
           wx.showToast({
@@ -181,7 +183,7 @@ Page({
   submit() {
     const {
       name,
-      seats,
+      seat,
       address,
       categoryName,
       latitude,
@@ -190,7 +192,8 @@ Page({
       endTime,
       fileList
     } = this.data
-    if (!name || !seats || !address || !categoryName || !latitude || !longitude || !startTime || !endTime || !fileList.length) {
+    console.log(this.data)
+    if (!name || !seat || !address || !categoryName || !latitude || !longitude || !startTime || !endTime || !fileList.length) {
       wx.showToast({
         title: '请完善表单项',
         icon: 'error'
@@ -207,13 +210,13 @@ Page({
       _category_id = '3'
     }
     let _seats = []
-    for (let i = 0; i < seats; i++) {
+    for (let i = 0; i < seat; i++) {
       _seats.push({
         selected: '0',
         sid: String(i + 1)
       })
     }
-    const _params = {
+    const _paramsAdd = {
       name,
       address,
       category_id: _category_id,
@@ -221,20 +224,33 @@ Page({
       latitude,
       longitude,
       time: `${startTime} - ${endTime}`,
-      seats: _seats
+      seat: _seats
+    }
+    const _paramsEdit = {
+      _id: this.data._id,
+      name,
+      address,
+      category_id: _category_id,
+      img_src: fileList[0].url,
+      latitude,
+      longitude,
+      time: `${startTime} - ${endTime}`,
+      seat: _seats
     }
     wx.showToast({
       title: '添加中',
       icon: 'loading'
     })
     wx.cloud.callFunction({
-      name: 'addLab',
-      data: {
-        ..._params
+      name: this.data.oid === '1' ? 'editLab' : 'addLab',
+      data: this.data.oid === '1' ? {
+        ..._paramsEdit
+      } : {
+        ..._paramsAdd
       },
       success: res => {
         wx.showToast({
-          title: '添加成功',
+          title: this.data.oid === '1' ? '修改成功' : '添加成功',
           icon: 'success'
         })
         wx.navigateTo({
@@ -263,8 +279,24 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
+  onLoad: async function (options) {
+    if (!options.oid) return
+    const detail = await JSON.parse(decodeURIComponent(options.data))
+    this.setData({
+      name: detail.name,
+      seat: detail.seat.length,
+      startTime: detail.time.split(' - ')[0],
+      endTime: detail.time.split(' - ')[1],
+      categoryName: detail.category_id === '1' ? '农大新区' : detail.category_id === '2' ? '农大西区' : '农大东区',
+      address: detail.address,
+      longitude: detail.longitude,
+      latitude: detail.latitude,
+      fileList: [{
+        url: detail.img_src
+      }],
+      oid: '1',
+      _id: detail._id
+    })
   },
 
   /**
