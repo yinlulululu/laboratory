@@ -41,7 +41,7 @@ Page({
     })
   },
 
-  // 编辑活动
+  // 编辑活动 
   edit(e) {
     console.log(e.currentTarget.dataset.id)
   },
